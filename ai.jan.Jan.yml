@@ -83,8 +83,8 @@ modules:
         sha256: fc22f1bed8aa94e952d65d73c73465351fe4a8f111964170ad2cc69762aea0de
         only-arches: [x86_64]
       - type: file
-        url: https://raw.githubusercontent.com/janhq/jan/441361e7a8adf8e5b6270e423ce4e543abb30480/flatpak/ai.jan.Jan.metainfo.xml
-        sha256: 82fc2f9b9503a92868456325dca6049f7f0bbdfc453101678d5156c5aa1ecc2f
+        url: https://raw.githubusercontent.com/janhq/jan/d2cfd8fe6301a631590f1c684a6ce76bfdde5cdd/flatpak/ai.jan.Jan.metainfo.xml
+        sha256: f0eebb6a7aaf907c18056eea00abe89f2e12adf72d46604cd344ca2108807768
 
     build-commands:
       - ar -x *.deb
