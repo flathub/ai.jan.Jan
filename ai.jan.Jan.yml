@@ -79,8 +79,8 @@ modules:
     buildsystem: simple
     sources:
       - type: file
-        url: https://catalog.jan.ai/flatpak/Jan_0.7.5_amd64.deb
-        sha256: 6da33086a7a84b5f356193a70638f5f609074069d725610e36cbbc05e4473276
+        url: https://catalog.jan.ai/flatpak/Jan_0.7.6_amd64.deb
+        sha256: 554c014920733879bf8a0da948d39e73eaf4d47fcea2921a162aafc032de586a
         only-arches: [x86_64]
       - type: file
         url: https://raw.githubusercontent.com/janhq/jan/fbf81a5add3239b8060752e59c8efa50f5e7a2a5/flatpak/ai.jan.Jan.metainfo.xml
