@@ -80,11 +80,11 @@ modules:
     sources:
       - type: file
         url: https://catalog.jan.ai/flatpak/Jan_0.7.8_amd64-flatpak.deb
-        sha256: 9bef48a06308ff2c40810cc4fa712085e6571daa74c421b24d03851bdec09991
+        sha256: 72dc4ce2250ad04fa9af0a12a5fc1ebd224b0c5198a465a93f7a29209a4f3e8b
         only-arches: [x86_64]
       - type: file
-        url: https://raw.githubusercontent.com/janhq/jan/a21dc64425403650754094446208b2a6a61fc56b/flatpak/ai.jan.Jan.metainfo.xml
-        sha256: 36b9149ebaf079c4b55c8c8e068da309402bc95218c3e5e1ca3e262d19dd56cf
+        url: https://raw.githubusercontent.com/janhq/jan/d4fce9220c35dc510c53107737fb3ac62494e89b/flatpak/ai.jan.Jan.metainfo.xml
+        sha256: a98371e7a3c07c596a9846d8af199d3ec65900f08f0b9d60ac1a14d600bd8728
 
 
     build-commands:
