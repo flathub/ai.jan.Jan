@@ -1,6 +1,6 @@
 id: ai.jan.Jan
 runtime: org.gnome.Platform
-runtime-version: '49'
+runtime-version: '50'
 sdk: org.gnome.Sdk
 command: Jan
 finish-args:
@@ -14,7 +14,8 @@ finish-args:
 cleanup:
   - /include
   - /lib/cmake
-  - /lib/pkgconfig
+  - /share/cmake
+  - '*.a'
 
 modules:
   - name: volk
@@ -45,36 +46,6 @@ modules:
         url: https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.3.283.zip
         sha256: 11ec6b474e91dc8cb6e7f22891294ede549bb6ed67c19d230e293b3fc9610883
 
-  - name: shaderc
-    buildsystem: cmake-ninja
-    builddir: true
-    config-opts:
-      - -DSHADERC_SKIP_COPYRIGHT_CHECK=ON
-      - -DSHADERC_SKIP_EXAMPLES=ON
-      - -DSHADERC_SKIP_TESTS=ON
-      - -DSPIRV_SKIP_EXECUTABLES=ON
-      - -DENABLE_GLSLANG_BINARIES=OFF
-    sources:
-      - type: git
-        url: https://github.com/google/shaderc.git
-        tag: v2024.1
-        commit: 47a9387ef5b3600d30d84c71ec77a59dc7db46fa
-      # https://github.com/google/shaderc/blob/known-good/known_good.json
-      - type: git
-        url: https://github.com/KhronosGroup/SPIRV-Tools.git
-        commit: dd4b663e13c07fea4fbb3f70c1c91c86731099f7
-        dest: third_party/spirv-tools
-      - type: git
-        url: https://github.com/KhronosGroup/SPIRV-Headers.git
-        commit: 5e3ad389ee56fca27c9705d093ae5387ce404df4
-        dest: third_party/spirv-headers
-      - type: git
-        url: https://github.com/KhronosGroup/glslang.git
-        commit: 142052fa30f9eca191aa9dcf65359fcaed09eeec
-        dest: third_party/glslang
-      - type: patch
-        path: patches/fix-cstdint.patch
-
   - name: jan-binary
     buildsystem: simple
     sources:
@@ -85,14 +56,12 @@ modules:
       - type: file
         url: https://raw.githubusercontent.com/janhq/jan/b4fce82a8304df92e2babd95b5bd82df795d8721/flatpak/ai.jan.Jan.metainfo.xml
         sha256: 18f8f6caae1d43865dd1673ad30e43d8438b73604292a580bd221d46a7abe8bd
-
-
     build-commands:
       - ar -x *.deb
       - tar -xf data.tar.gz
-      - 'install -Dm755 usr/bin/Jan /app/bin/Jan'
-      - 'install -Dm755 usr/bin/bun /app/bin/bun'
-      - 'install -Dm755 usr/bin/uv /app/bin/uv'
+      - install -Dm755 usr/bin/Jan /app/bin/Jan
+      - install -Dm755 usr/bin/bun /app/bin/bun
+      - install -Dm755 usr/bin/uv /app/bin/uv
       - cp -rv usr/lib/* /app/lib/.
       - install -Dm644 usr/share/applications/Jan.desktop /app/share/applications/ai.jan.Jan.desktop
       - desktop-file-edit --set-key=Exec --set-value=/app/bin/Jan --set-icon=ai.jan.Jan /app/share/applications/ai.jan.Jan.desktop
