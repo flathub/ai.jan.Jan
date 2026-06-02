@@ -50,12 +50,12 @@ modules:
     buildsystem: simple
     sources:
       - type: file
-        url: https://catalog.jan.ai/flatpak/Jan_0.8.1_amd64-flatpak.deb
-        sha256: ce85a6a78b527ff56b863bb8e5e81712b4ea445351cb64ca3fbec9738d8b7327
+        url: https://catalog.jan.ai/flatpak/Jan_0.8.2_amd64-flatpak.deb
+        sha256: 56cb6cd9e2ac35c2396af1836114433751ad5d54ab4c8fdded1763852ded1033
         only-arches: [x86_64]
       - type: file
-        url: https://raw.githubusercontent.com/janhq/jan/ff2cbe2366b054f78feca635aa4aae91f344eac2/flatpak/ai.jan.Jan.metainfo.xml
-        sha256: 1bb13de12908ad40591080a6e11d5e9a250d4ecc5298f546dafdc16c772fcbf6
+        url: https://raw.githubusercontent.com/janhq/jan/7450418b0964af6626e635f1ca6f93c5c09a514b/flatpak/ai.jan.Jan.metainfo.xml
+        sha256: 0c647517700127bcc1709b665b2a5a19b811df10c1075c0ddfd53747fbdd8027
     build-commands:
       - ar -x *.deb
       - tar -xf data.tar.gz
