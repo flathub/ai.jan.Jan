@@ -97,25 +97,25 @@ modules:
         JAN_ENGINE_FEATURES: engine-cuda,engine-vulkan
     sources:
       - type: archive
-        url: https://github.com/janhq/jan/archive/refs/tags/v0.8.7.tar.gz
-        sha256: 4120e1d6b668ef575ff5d7898a6feb025e579522a415e0622b48b92a76a40297
+        url: https://github.com/janhq/jan/archive/refs/tags/v0.8.8.tar.gz
+        sha256: 0f88916c38acf78c794b430b3c46729ec42e2617cfeba12644b664e1bdd1c35f
       # Vendors src-tauri/Cargo.lock and the llamacpp plugin's own lockfile;
       # its .cargo/config.toml covers every crate built under src-tauri
       - type: archive
-        url: https://github.com/janhq/jan/releases/download/v0.8.7/jan-cargo-vendor-v0.8.7.tar.gz
-        sha256: 2a2d3ed8444ea4c09128fa31fb54fbf0485dea2594573165fd9c84aead90ba09
+        url: https://github.com/janhq/jan/releases/download/v0.8.8/jan-cargo-vendor-v0.8.8.tar.gz
+        sha256: 901c3d2cc078ef511639d74ae35a632dcf5ebab45f5ef7a0cc6b360e7a72849a
         dest: src-tauri
         strip-components: 0
       - type: archive
-        url: https://github.com/janhq/jan/releases/download/v0.8.7/jan-yarn-cache-v0.8.7.tar.gz
-        sha256: 4768b5b4bc0b84452e37ca4b3a8e3508d5650edf542a8ed8557623283782124d
+        url: https://github.com/janhq/jan/releases/download/v0.8.8/jan-yarn-cache-v0.8.8.tar.gz
+        sha256: 35239a6c76972709e8dc3e6eecd4c038fe88d31a5d8baaf6a5fa43ba91ffee21
         strip-components: 0
       # llama.cpp at the pin in src-tauri/plugins/tauri-plugin-llamacpp/build.rs
       # (PINNED_TAG / PINNED_COMMIT), where build.rs looks for it by default;
       # this replaces the network clone in fetch-engine-source.sh
       - type: archive
-        url: https://github.com/ggml-org/llama.cpp/archive/refs/tags/b11146.tar.gz
-        sha256: 25eb89e300a0600bfdfadaac2acc7ec3a93cd23b992b7eff3c0eeae7987e4474
+        url: https://github.com/ggml-org/llama.cpp/archive/refs/tags/b11669.tar.gz
+        sha256: e06ba4fa263e30fdb9f0e65f00a8965202ddaa0c51f548a67e1f9b2164d04efc
         dest: src-tauri/plugins/tauri-plugin-llamacpp/vendor/llama.cpp
       - type: file
         url: https://repo.yarnpkg.com/4.5.3/packages/yarnpkg-cli/bin/yarn.js
@@ -151,7 +151,7 @@ modules:
       - cd src-tauri/plugins && node "$FLATPAK_BUILDER_BUILDDIR/.yarn/releases/yarn-4.5.3.cjs" install
       # Stamp release version into web-app/package.json (source tag ships it
       # stale; the UI's VERSION is injected from here at build time)
-      - node -e "const f='web-app/package.json',p=require('./'+f);p.version='0.8.7';require('fs').writeFileSync(f,JSON.stringify(p,null,2)+'\n')"
+      - node -e "const f='web-app/package.json',p=require('./'+f);p.version='0.8.8';require('fs').writeFileSync(f,JSON.stringify(p,null,2)+'\n')"
       # Build TS layers
       - node .yarn/releases/yarn-4.5.3.cjs build:tauri:plugin:api
       - node .yarn/releases/yarn-4.5.3.cjs build:core
