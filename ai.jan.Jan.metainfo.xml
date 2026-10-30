@@ -104,6 +104,11 @@
   </keywords>
 
   <releases>
+    <release version="0.8.8" date="2026-10-28">
+      <description>
+        <p>A security update to 0.8.7: links in chat open in your browser, the local API checks where browser requests come from (Trusted Hosts), and several file, path and shell-profile checks are tightened; updates the llama.cpp engine to 0.7.0 and fixes local models on Windows user names with non-English characters</p>
+      </description>
+    </release>
     <release version="0.8.7" date="2026-10-20">
       <description>
         <p>Adds a Shell switch to turn the shell tool off in chat, a separate image size limit, and built-in subagents for the Jan agent; keeps project threads in their project when a document is attached, sends pasted @decorators as typed, makes Stop end the whole turn, and stops local chat failing behind a proxy</p>
